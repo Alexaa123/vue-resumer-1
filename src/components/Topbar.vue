@@ -1,12 +1,17 @@
 <template>
 	<div id="topbar">
 		i ma topbar
+		<div class="actions">
+			<button>注册</button>
+			<button>登陆</button>
+		</div>
 	</div>
 </template>
 
-<style>
+<style lang="scss">
 	#topbar{
-		border:1px solid red;
-		min-height:80px;
+		display:flex;
+		justify-content: space-between;
+		padding:16px;
 	}
 </style>
