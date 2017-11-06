@@ -1,12 +1,11 @@
 <template>
 	<div id="preview">
-		i am preview
+		123456
 	</div>
 </template>
 
 <style>
 	#preview{
-		border:1px solid blue;
 		min-height:80px;
 	}
 </style>

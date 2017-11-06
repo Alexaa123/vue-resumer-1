@@ -2,8 +2,8 @@
 	<div id="topbar">
 		i ma topbar
 		<div class="actions">
-			<button>注册</button>
-			<button>登陆</button>
+			<el-button type="success">登陆</el-button>
+			<el-button type="primary">注册</el-button>
 		</div>
 	</div>
 </template>
@@ -12,6 +12,8 @@
 	#topbar{
 		display:flex;
 		justify-content: space-between;
+		align-items: center;
 		padding:16px;
+		font-size:20px;
 	}
 </style>
