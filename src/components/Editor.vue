@@ -14,12 +14,52 @@
 			</ol>
 		</nav>
 		<ol class="panes">
-			<li v-bind:class="{active:currentTab == 0}">tab1</li>
-			<li v-bind:class="{active:currentTab == 1}">tab2</li>
-			<li v-bind:class="{active:currentTab == 2}">tab3</li>
-			<li v-bind:class="{active:currentTab == 3}">tab4</li>
-			<li v-bind:class="{active:currentTab == 4}">tab5</li>
-			<li v-bind:class="{active:currentTab == 5}">tab6</li>
+			<li v-bind:class="{active:currentTab == 0}">
+				<h2>个人信息</h2>
+				<el-form>
+					<el-form-item label="姓 名">
+    					<el-input v-model="profile.name"></el-input>
+  					</el-form-item>
+  					<el-form-item label="城 市">
+    					<el-input v-model="profile.city"></el-input>
+  					</el-form-item>
+  					<el-form-item label="出生年月">
+    					<el-input v-model="profile.birth"></el-input>
+  					</el-form-item>
+				</el-form>
+			</li>
+			<li v-bind:class="{active:currentTab == 1}">
+				<h2>工作经历</h2>
+				<el-form>
+					<div class="wrap" v-for="(wrok,index) in workHistory">
+						<el-form-item label="公 司">
+	    					<el-input v-model="wrok.company" placeholder="请输入公司名称"></el-input>
+	  					</el-form-item>
+	  					<el-form-item label="工作内容">
+	    					<el-input
+							  type="textarea"
+							  :rows="6"
+							  placeholder="请输入内容"
+							  v-model="wrok.content">
+							</el-input>
+	  					</el-form-item>
+	  					<i class="el-icon-error colse" v-on:click="removeWork(index)"></i>
+					</div>
+					<el-button class="addbtn" type="primary" v-on:click="addWork">添加</el-button>	
+				</el-form>
+			</li>
+			<li v-bind:class="{active:currentTab == 2}">
+				<h2>学习经历</h2>
+			</li>
+			<li v-bind:class="{active:currentTab == 3}">
+				<h2>获奖情况</h2>
+			</li>
+			<li v-bind:class="{active:currentTab == 4}">
+				<h2>项目信息</h2>
+			</li>
+			<li v-bind:class="{active:currentTab == 5}">
+				<h2>联系方式</h2>
+			</li>
 		</ol>
 	</div>
 </template>
@@ -29,8 +69,29 @@
 		data(){
 			return {
 				currentTab:0,
-				icons:['zheng','work','book','jiang','poject','telephone']
+				icons:['zheng','work','book','jiang','poject','telephone'],
+				profile:{
+					name:'',
+					city:'',
+					birth:''
+				},
+				workHistory:[
+					{company: '', content: ''}
+				]
 			}
+		},
+		methods:{
+			addWork(){
+				this.workHistory.push({
+					company: '', content: ''
+				})
+			},
+			removeWork(index){
+				this.workHistory.splice(index,1)
+			}
+		},
+		created(){
+
 		}
 	}
 </script>
@@ -45,6 +106,7 @@
 			width:6em;
 		}
 		nav > ol > li{
+			cursor: pointer;
 			padding:16px 0;
 			 > .icon{
 			 	fill: #fff;
@@ -57,8 +119,30 @@
 			 }
 		}
 		> .panes{
+			flex:1;
 			>li{
+				text-align: left;
+				padding:32px;
 				display:none;
+				height:100%;
+				overflow: auto;
+			.wrap{
+				position:relative;
+				border-bottom:2px solid #888;
+				}
+			.addbtn{
+				margin-top:10px;
+			}
+			.colse{
+				cursor: pointer;
+				position: absolute;
+				top:0;
+				right:4px;
+				font-size:24px;
+				&:hover{
+					color:red;
+				}
+			}	
 				&.active{
 					display:block;
 				}
