@@ -1,0 +1,20 @@
+{
+  "name": "vue-resumer-1",
+  "version": "1.0.0",
+  "description": "Vue制作的一个简历编辑器",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xzmly/vue-resumer-1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "",
+  "bugs": {
+    "url": "https://github.com/xzmly/vue-resumer-1/issues"
+  },
+  "homepage": "https://github.com/xzmly/vue-resumer-1#readme"
+}
