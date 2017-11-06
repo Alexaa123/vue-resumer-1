@@ -127,18 +127,24 @@
 				height:100%;
 				overflow: auto;
 			.wrap{
+				margin:24px 0;
 				position:relative;
-				border-bottom:2px solid #888;
+
+				border-radius:5px;
+				background:rgba(0,0,0,0.05);
+				box-shadow:0 0 3px hsla(0,0,0,0.2);
 				}
 			.addbtn{
-				margin-top:10px;
+				display: block;
+				margin:0 auto;
 			}
 			.colse{
 				cursor: pointer;
 				position: absolute;
-				top:0;
+				top:4px;
 				right:4px;
-				font-size:24px;
+				font-size:1.4em;
+				color:rgba(0,0,0,0.3);
 				&:hover{
 					color:red;
 				}
