@@ -7,7 +7,7 @@
 				v-bind:class = "{active:currentTab == i}"
 				v-on:click = "currentTab = i"
 				>
-					<svg class="icon ">
+					<svg class="icon">
     					<use v-bind:xlink:href="`#icon-${icons[i]}`"></use>
 					</svg>
 				</li>				
@@ -76,6 +76,7 @@
 		> nav{
 			background:#222;
 			width:6em;
+			border-radius:5px 0 0 5px;
 		}
 		nav > ol > li{
 			cursor: pointer;

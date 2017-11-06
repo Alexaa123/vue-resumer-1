@@ -24,7 +24,9 @@ export default {
         profile:{
           name:'',
           city:'',
-          birth:''
+          birth:'',
+          sex:'',
+          age:''
         },
         workHistory:[
           {company: '', time:'',time2:'',content: ''}
@@ -90,7 +92,7 @@ main{
   background:#ddd;
   > .editor{
     background:#fff;
-    width:45em;
+    width:43em;
     margin:16px 8px 16px 16px;
     box-shadow:0 0 3px hsla(0,0,0,0.5);
     border-radius:5px;
