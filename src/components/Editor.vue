@@ -2,43 +2,38 @@
 	<div id="editor">
 		<nav>
 			<ol>
-				<li class="active">
+				<li 
+				v-for = "i in [0,1,2,3,4,5]"
+				v-bind:class = "{active:currentTab == i}"
+				v-on:click = "currentTab = i"
+				>
 					<svg class="icon ">
-    					<use xlink:href="#icon-zheng"></use>
+    					<use v-bind:xlink:href="`#icon-${icons[i]}`"></use>
 					</svg>
-				</li>
-				<li>
-					<svg class="icon">
-    					<use xlink:href="#icon-work"></use>
-					</svg>
-				</li>
-				<li>
-					<svg class="icon">
-    					<use xlink:href="#icon-book"></use>
-					</svg>
-				</li>
-				<li>
-					<svg class="icon">
-    					<use xlink:href="#icon-jiang"></use>
-					</svg>
-				</li>
-				<li>
-					<svg class="icon">
-    					<use xlink:href="#icon-poject"></use>
-					</svg>
-				</li>
-				<li>
-					<svg class="icon">
-    					<use xlink:href="#icon-telephone"></use>
-					</svg>
-				</li>
+				</li>				
 			</ol>
 		</nav>
-		<ol>
-			<li></li>
+		<ol class="panes">
+			<li v-bind:class="{active:currentTab == 0}">tab1</li>
+			<li v-bind:class="{active:currentTab == 1}">tab2</li>
+			<li v-bind:class="{active:currentTab == 2}">tab3</li>
+			<li v-bind:class="{active:currentTab == 3}">tab4</li>
+			<li v-bind:class="{active:currentTab == 4}">tab5</li>
+			<li v-bind:class="{active:currentTab == 5}">tab6</li>
 		</ol>
 	</div>
 </template>
+
+<script>
+	export default {
+		data(){
+			return {
+				currentTab:0,
+				icons:['zheng','work','book','jiang','poject','telephone']
+			}
+		}
+	}
+</script>
 
 <style lang="scss">
 	#editor{
@@ -50,8 +45,7 @@
 			width:6em;
 		}
 		nav > ol > li{
-			padding:8px 0;
-			border:1px solid red;
+			padding:16px 0;
 			 > .icon{
 			 	fill: #fff;
 			 }
@@ -61,6 +55,14 @@
 			 		fill: #111;
 			 	}
 			 }
+		}
+		> .panes{
+			>li{
+				display:none;
+				&.active{
+					display:block;
+				}
+			}
 		}
 	}
 </style>
