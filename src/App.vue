@@ -54,7 +54,7 @@ main{
   background:#ddd;
   > .editor{
     background:#fff;
-    width:40em;
+    width:50em;
     margin:16px 8px 16px 16px;
     box-shadow:0 0 3px hsla(0,0,0,0.5);
     border-radius:5px;

@@ -15,18 +15,7 @@
 		</nav>
 		<ol class="panes">
 			<li v-bind:class="{active:currentTab == 0}">
-				<h2>个人信息</h2>
-				<el-form>
-					<el-form-item label="姓 名">
-    					<el-input v-model="profile.name"></el-input>
-  					</el-form-item>
-  					<el-form-item label="城 市">
-    					<el-input v-model="profile.city"></el-input>
-  					</el-form-item>
-  					<el-form-item label="出生年月">
-    					<el-input v-model="profile.birth"></el-input>
-  					</el-form-item>
-				</el-form>
+				<profileEditor v-bind:profile="profile" />
 			</li>
 			<li v-bind:class="{active:currentTab == 1}">
 				<h2>工作经历</h2>
@@ -65,7 +54,11 @@
 </template>
 
 <script>
+	import ProfileEditor from './profileEditor'
 	export default {
+		components:{
+			ProfileEditor
+		},
 		data(){
 			return {
 				currentTab:0,
@@ -122,17 +115,16 @@
 			flex:1;
 			>li{
 				text-align: left;
-				padding:32px;
+				padding:24px;
 				display:none;
 				height:100%;
 				overflow: auto;
 			.wrap{
 				margin:24px 0;
 				position:relative;
-
 				border-radius:5px;
-				background:rgba(0,0,0,0.05);
-				box-shadow:0 0 3px hsla(0,0,0,0.2);
+				background:rgba(0,0,0,0.02);
+				box-shadow:0 0 3px hsla(0,0,0,0.3);
 				}
 			.addbtn{
 				display: block;
