@@ -15,22 +15,22 @@
 		</nav>
 		<ol class="panes">
 			<li v-bind:class="{active:currentTab == 0}">
-				<profileEditor v-bind:profile="profile" />
+				<profileEditor v-bind:profile="resume.profile" />
 			</li>
 			<li v-bind:class="{active:currentTab == 1}">
-				<workEditor v-bind:workHistory="workHistory" />
+				<workEditor v-bind:workHistory="resume.workHistory" />
 			</li>
 			<li v-bind:class="{active:currentTab == 2}">
-				<h2>学习经历</h2>
+				<StudyHistory v-bind:items="resume.items"></StudyHistory>
 			</li>
 			<li v-bind:class="{active:currentTab == 3}">
-				<h2>获奖情况</h2>
+				<Reward v-bind:reward="resume.reward"></Reward>
 			</li>
 			<li v-bind:class="{active:currentTab == 4}">
-				<h2>项目信息</h2>
+				<Poject v-bind:poject="resume.poject"></Poject>
 			</li>
 			<li v-bind:class="{active:currentTab == 5}">
-				<h2>联系方式</h2>
+				<Telephone v-bind:telephone="resume.telephone"></Telephone>
 			</li>
 		</ol>
 	</div>
@@ -39,23 +39,24 @@
 <script>
 	import ProfileEditor from './profileEditor'
 	import WorkEditor from './workEditor'
+	import StudyHistory from './studyHistoryEditor'
+	import Reward from './RewardEditor'
+	import Poject from './PojectEditor'
+	import Telephone from './telephoneEditor'
 	export default {
+		props:['resume'],
 		components:{
 			ProfileEditor,
-			WorkEditor
+			WorkEditor,
+			StudyHistory,
+			Reward,
+			Poject,
+			Telephone
 		},
 		data(){
 			return {
 				currentTab:0,
 				icons:['zheng','work','book','jiang','poject','telephone'],
-				profile:{
-					name:'',
-					city:'',
-					birth:''
-				},
-				workHistory:[
-					{company: '', content: ''}
-				]
 			}
 		},
 		methods:{
@@ -90,6 +91,7 @@
 			 }
 		}
 		> .panes{
+			overflow: auto;
 			flex:1;
 			>li{
 				text-align: left;
@@ -99,11 +101,17 @@
 				overflow: auto;
 			.wrap{
 				margin:24px 0;
+				padding:4px;
 				position:relative;
+				border-bottom:2px solid rgba(0,0,0,0.2);
 				border-radius:5px;
 				background:rgba(0,0,0,0.02);
 				box-shadow:0 0 3px hsla(0,0,0,0.3);
 				}
+			.demonstration{
+				display: block;
+				padding-bottom:1em;
+			}	
 			.addbtn{
 				display: block;
 				margin:0 auto;

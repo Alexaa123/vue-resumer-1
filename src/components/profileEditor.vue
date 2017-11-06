@@ -8,9 +8,14 @@
 				<el-form-item label="城 市">
 				<el-input v-model="profile.city" placeholder="你所在的城市"></el-input>
 				</el-form-item>
-				<el-form-item label="出生年月">
-				<el-input v-model="profile.birth" placeholder="你的出生年/月/日"></el-input>
-				</el-form-item>
+				<span class="demonstration">出生年月</span>
+				<el-date-picker
+			      v-model="profile.birth"
+			      type="date"
+			      placeholder="选择日期"
+			      format="yyyy 年 MM 月 dd 日"
+			      value-format="yyyy-MM-dd">
+			    </el-date-picker>
 		</el-form>
 	</div>
 </template>
