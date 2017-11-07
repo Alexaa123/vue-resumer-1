@@ -86,6 +86,7 @@ html,body{
   z-index:1;
   box-shadow:inset 0 0 3px;
 }
+
 #app main{
   display:flex;
   flex:1;
@@ -100,7 +101,6 @@ html,body{
   > .preview{
      background:#fff;
     flex:1;
-    margin:16px 16px 16px 8px;
     box-shadow:0 0 3px hsla(0,0,0,0.5);
     border-radius:5px;
   }
@@ -116,24 +116,28 @@ html,body{
   }
 }
 
-#app .previewMode > #topbar{
+.preview{
+  margin:16px 16px 16px 8px;
+}
+
+.previewMode > #topbar{
    display:none;
 }
 
-#app .previewMode #editor{
+.previewMode #editor{
    display:none;
 }
 
-#app .previewMode #preview{
+.previewMode #preview{
    max-width: 1080px;
-   margin:16px auto;
+   margin: 16px auto;
 }
 
 #out{
   display:none;
 }
 
-#app .previewMode #out{
+.previewMode #out{
   display: inline-block;
   position:fixed;
   right:24px;
