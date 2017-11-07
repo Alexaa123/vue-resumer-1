@@ -84,12 +84,12 @@ html,body{
 .topbar{
   position:relative;
   z-index:1;
-  box-shadow:0 0 3px hsla(0,0,0,0.5);
+  box-shadow:inset 0 0 3px;
 }
 main{
   display:flex;
   flex:1;
-  background:#ddd;
+  animation:5s change linear infinite;
   > .editor{
     background:#fff;
     width:43em;
@@ -103,6 +103,16 @@ main{
     margin:16px 16px 16px 8px;
     box-shadow:0 0 3px hsla(0,0,0,0.5);
     border-radius:5px;
+  }
+}
+@keyframes change{
+  0%,
+  80%,
+  100%{
+    background:#00264a;
+  }
+  10%{
+    background:#05529b;
   }
 }
 
