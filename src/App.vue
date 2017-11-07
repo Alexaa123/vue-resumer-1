@@ -86,7 +86,7 @@ html,body{
   z-index:1;
   box-shadow:inset 0 0 3px;
 }
-main{
+#app main{
   display:flex;
   flex:1;
   animation:5s change linear infinite;
@@ -116,15 +116,15 @@ main{
   }
 }
 
-.previewMode > #topbar{
+#app .previewMode > #topbar{
    display:none;
 }
 
-.previewMode #editor{
+#app .previewMode #editor{
    display:none;
 }
 
-.previewMode #preview{
+#app .previewMode #preview{
    max-width: 1080px;
    margin:16px auto;
 }
@@ -133,7 +133,7 @@ main{
   display:none;
 }
 
-.previewMode #out{
+#app .previewMode #out{
   display: inline-block;
   position:fixed;
   right:24px;
