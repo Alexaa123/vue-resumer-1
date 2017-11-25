@@ -2,8 +2,7 @@
 	<div id="topbar">
 		<span class="logo">Resumer</span>
 		<div class="actions">
-			<!-- <el-button type="success">登陆</el-button>
-			<el-button type="primary">注册</el-button> -->
+			
 			<el-button type="danger" v-on:click="preview">预览</el-button>
 		</div>
 	</div>
